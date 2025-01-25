@@ -1,0 +1,13 @@
+{
+  "name": "color-generator",
+  "version": "1.0.0",
+  "description": "Color generation tool",
+  "main": "cli.js",
+  "scripts": {
+    "start": "node cli.js"
+  },
+  "type": "module",
+  "dependencies": {
+    "sharp": "^0.33.5"
+  }
+}
