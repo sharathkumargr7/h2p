@@ -16,15 +16,26 @@ const Colors = {
 };
 
 async function generateTypeDefinition(colors) {
+  // Generate the header preview string for each category
+  const headerPreviews = Object.entries(colors)
+    .map(([category, shades]) => 
+      Object.entries(shades)
+        .map(([shade, hex]) => 
+          `![${category} ${shade}](https://mui.com/static/colors-preview/${category}-${shade}-24x24.png)`
+        )
+        .join(' ')
+    )
+    .join(' ');
+
   const typeContent = `/**
- * Color palette type definitions
+ * ${headerPreviews}
  */
 declare const Colors: {
 ${Object.entries(colors)
     .map(([category, shades]) => `  ${category}: {
 ${Object.entries(shades)
       .map(([shade, hex]) => `    /**
-     * Preview: ${hex}
+     * Preview: ![${category} ${shade}](https://mui.com/static/colors-preview/${category}-${shade}-24x24.png)
      */
     ${shade}: '${hex}';`)
       .join('\n')}
