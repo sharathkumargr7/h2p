@@ -4,7 +4,8 @@
   "description": "Color generation tool",
   "main": "cli.js",
   "scripts": {
-    "start": "node cli.js"
+    "start": "node cli.js",
+    "generate-types": "node generateTypes.js"
   },
   "type": "module",
   "dependencies": {
